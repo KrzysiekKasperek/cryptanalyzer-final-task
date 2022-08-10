@@ -1,13 +1,21 @@
 package cc.codegym.java;
 
+import javax.swing.*;
+import java.io.IOException;
+
 public class Application {
-    public static void main(String[] args) {
-        String testMessage = "Let's see how the things are going with the project";
-        Encryption enc1 = new Encryption(5);
-        String encryptedMessage = enc1.encrypt(testMessage);
-        System.out.println(encryptedMessage);
+    public static void main(String[] args) throws IOException {
+        String input = ReadFile.fileInput("input_text.txt");
+        Encryption enc1 = new Encryption(ScannerConsole.scan());
+        String encryptedMessage = enc1.encrypt(input);
+        WriteFile.writeToFile("output_text.txt", encryptedMessage);
+        JOptionPane.showMessageDialog(null, encryptedMessage);
+        Cryptanalysis.choice(encryptedMessage);
         String decryptedMessage = enc1.decrypt(encryptedMessage);
-        System.out.println(decryptedMessage);
+        JOptionPane.showMessageDialog(null, decryptedMessage);
+//        test of statistical analysis
+        String s = "UFTU PG XPSLJOH";
+        Cryptanalysis.statistic(s, s.length());
 
     }
 }
