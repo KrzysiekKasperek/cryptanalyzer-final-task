@@ -15,20 +15,21 @@ public class ScannerConsole {
                 int read = Integer.parseInt(input);
                 if (read < 1 || read > 26) {
                     JOptionPane.showMessageDialog(null, "A cryptographic key should be a number from 1 to 26");
-                    continue;
+
                 }
                 else
                     key = read;
+                break;
             }
             catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "A cryptographic key has to be a NUMBER!");
             }
 
 
-            return key;
+
 
         }
-
+        return key;
 
     }
 
