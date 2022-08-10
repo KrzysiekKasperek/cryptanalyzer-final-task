@@ -13,10 +13,12 @@ public class Cryptanalysis {
             if (input.equals("B") || input.equals("S")) {
                 JOptionPane.showMessageDialog(null, "Thank you!");
                 if (input.equals("B")) {
+//                    I was not able to finish this
 //                    bruteForce(text);
                     break;
                 }
                 else if (input.equals("S")) {
+//                    It doesn't work with my normal encryption method, so I had to turn it off
 //                    statistic(text, text.length());
                     break;
                 }
@@ -29,21 +31,21 @@ public class Cryptanalysis {
 
     }
     public static String bruteForce(String decryptedText) {
-        StringBuilder builder = new StringBuilder();
-        List<Character> list = new ArrayList<>();
-        int hint = 0;
-        String s = null;
-        for (int i = 0; i <= 100; i++) {
-            for (int j = 0; j < decryptedText.length(); j++) {
-                char b = (char)(decryptedText.charAt(j) -i);
-                builder.append(b);
-
-            }
-            s = builder.toString();
-            System.out.println("Key is: "+ i + " - " + s);
-            s = null;
-            builder.isEmpty();
-        }
+//        StringBuilder builder = new StringBuilder();
+//        List<Character> list = new ArrayList<>();
+//        int hint = 0;
+//        String s = null;
+//        for (int i = 0; i <= 100; i++) {
+//            for (int j = 0; j < decryptedText.length(); j++) {
+//                char b = (char)(decryptedText.charAt(j) -i);
+//                builder.append(b);
+//
+//            }
+//            s = builder.toString();
+//            System.out.println("Key is: "+ i + " - " + s);
+//            s = null;
+//            builder.isEmpty();
+//        }
         return "";
     }
     public static void statistic(String encryptedText, int length) {
@@ -60,6 +62,7 @@ public class Cryptanalysis {
         }
         for (int i = 0; i < 26; i++) {
             newFreq[i] = frequency[i];
+
         }
         Arrays.sort(newFreq);
         newFreq = reverse(newFreq);
@@ -101,9 +104,9 @@ public class Cryptanalysis {
         }
     }
 
-    static int[] reverse(int a[]) {
-        int x, n = a.length, t;
-        for (int i = 0; i < n / 2; i++) {
+    static int[] reverse(int[] a) {
+        int i, n = a.length, t;
+        for (i = 0; i < n / 2; i++) {
             t = a[i];
             a[i] = a[n - i - 1];
             a[n - i - 1] = t;

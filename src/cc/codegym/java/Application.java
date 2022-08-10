@@ -1,10 +1,9 @@
 package cc.codegym.java;
 
 import javax.swing.*;
-import java.io.IOException;
 
 public class Application {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
         String input = ReadFile.fileInput("input_text.txt");
         Encryption enc1 = new Encryption(ScannerConsole.scan());
         String encryptedMessage = enc1.encrypt(input);

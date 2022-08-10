@@ -1,6 +1,5 @@
 package cc.codegym.java;
 
-import java.util.List;
 
 public class Encryption {
     private  final int key;
@@ -11,6 +10,8 @@ public class Encryption {
     }
 
     public String encrypt(String text) {
+//        APPROACH - 1
+
 //        char[] arr = text.toCharArray();
 //        for (int i = 0; i <text.length() ; i++) {
 //            arr[i] = (char) ((arr[i] + key) % 128);
@@ -39,7 +40,9 @@ public class Encryption {
 //            }
 //        }
 //        return builder.toString();
+
 //        APPROACH - 2
+
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < text.length(); i++) {
             char a = (char) ((text.charAt(i) + key) %128) ;
@@ -50,6 +53,8 @@ public class Encryption {
     }
 
     public String decrypt(String decryptedText) {
+//        APPROACH - 1
+
 //        char[] arr = decryptedText.toCharArray();
 //        for (int i = 0; i < decryptedText.length(); i++) {
 //            arr[i] = (char)((arr[i] - key) % 128);
@@ -78,7 +83,9 @@ public class Encryption {
 //            }
 //        }
 //        return builder.toString();
+
 //        APPROACH - 2
+
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < decryptedText.length(); i++) {
             char b = (char)((decryptedText.charAt(i) + 128 - key % 128) % 128);
